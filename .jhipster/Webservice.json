@@ -12,14 +12,6 @@
     ],
     "relationships": [
         {
-            "relationshipType": "one-to-one",
-            "relationshipName": "access",
-            "otherEntityName": "access",
-            "otherEntityField": "id",
-            "ownerSide": true,
-            "otherEntityRelationshipName": "webservice"
-        },
-        {
             "relationshipType": "many-to-one",
             "relationshipName": "datasource",
             "otherEntityName": "dataSource",

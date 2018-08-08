@@ -34,6 +34,7 @@ describe('Access e2e test', () => {
         expect(accessUpdatePage.getTableNameInput()).toMatch('tableName');
         accessUpdatePage.accessTypeSelectLastOption();
         accessUpdatePage.roleSelectLastOption();
+        accessUpdatePage.webserviceSelectLastOption();
         accessUpdatePage.save();
         expect(accessUpdatePage.getSaveButton().isPresent()).toBeFalsy();
     });

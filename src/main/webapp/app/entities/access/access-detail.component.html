@@ -19,6 +19,12 @@
                         <a [routerLink]="['/role', access.role?.id, 'view']">{{access.role?.id}}</a>
                     </div>
                 </dd>
+                <dt><span jhiTranslate="srvwizApp.access.webservice">Webservice</span></dt>
+                <dd>
+                    <div *ngIf="access.webservice">
+                        <a [routerLink]="['/webservice', access.webservice?.id, 'view']">{{access.webservice?.id}}</a>
+                    </div>
+                </dd>
             </dl>
 
             <button type="submit"

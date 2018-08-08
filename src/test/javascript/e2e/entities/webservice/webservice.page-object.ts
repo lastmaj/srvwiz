@@ -19,7 +19,6 @@ export class WebserviceUpdatePage {
     cancelButton = element(by.id('cancel-save'));
     webserviceNameInput = element(by.id('field_webserviceName'));
     descriptionInput = element(by.id('field_description'));
-    accessSelect = element(by.id('field_access'));
     datasourceSelect = element(by.id('field_datasource'));
 
     getPageTitle() {
@@ -40,25 +39,6 @@ export class WebserviceUpdatePage {
 
     getDescriptionInput() {
         return this.descriptionInput.getAttribute('value');
-    }
-
-    accessSelectLastOption(): promise.Promise<void> {
-        return this.accessSelect
-            .all(by.tagName('option'))
-            .last()
-            .click();
-    }
-
-    accessSelectOption(option): promise.Promise<void> {
-        return this.accessSelect.sendKeys(option);
-    }
-
-    getAccessSelect(): ElementFinder {
-        return this.accessSelect;
-    }
-
-    getAccessSelectedOption() {
-        return this.accessSelect.element(by.css('option:checked')).getText();
     }
 
     datasourceSelectLastOption(): promise.Promise<void> {

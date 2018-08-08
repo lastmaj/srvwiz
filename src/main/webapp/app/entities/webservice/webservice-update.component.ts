@@ -6,8 +6,6 @@ import { JhiAlertService } from 'ng-jhipster';
 
 import { IWebservice } from 'app/shared/model/webservice.model';
 import { WebserviceService } from './webservice.service';
-import { IAccess } from 'app/shared/model/access.model';
-import { AccessService } from 'app/entities/access';
 import { IDataSource } from 'app/shared/model/data-source.model';
 import { DataSourceService } from 'app/entities/data-source';
 
@@ -19,14 +17,11 @@ export class WebserviceUpdateComponent implements OnInit {
     private _webservice: IWebservice;
     isSaving: boolean;
 
-    accesses: IAccess[];
-
     datasources: IDataSource[];
 
     constructor(
         private jhiAlertService: JhiAlertService,
         private webserviceService: WebserviceService,
-        private accessService: AccessService,
         private dataSourceService: DataSourceService,
         private activatedRoute: ActivatedRoute
     ) {}
@@ -36,21 +31,6 @@ export class WebserviceUpdateComponent implements OnInit {
         this.activatedRoute.data.subscribe(({ webservice }) => {
             this.webservice = webservice;
         });
-        this.accessService.query({ filter: 'webservice-is-null' }).subscribe(
-            (res: HttpResponse<IAccess[]>) => {
-                if (!this.webservice.access || !this.webservice.access.id) {
-                    this.accesses = res.body;
-                } else {
-                    this.accessService.find(this.webservice.access.id).subscribe(
-                        (subRes: HttpResponse<IAccess>) => {
-                            this.accesses = [subRes.body].concat(res.body);
-                        },
-                        (subRes: HttpErrorResponse) => this.onError(subRes.message)
-                    );
-                }
-            },
-            (res: HttpErrorResponse) => this.onError(res.message)
-        );
         this.dataSourceService.query().subscribe(
             (res: HttpResponse<IDataSource[]>) => {
                 this.datasources = res.body;
@@ -87,10 +67,6 @@ export class WebserviceUpdateComponent implements OnInit {
 
     private onError(errorMessage: string) {
         this.jhiAlertService.error(errorMessage, null, null);
-    }
-
-    trackAccessById(index: number, item: IAccess) {
-        return item.id;
     }
 
     trackDataSourceById(index: number, item: IDataSource) {

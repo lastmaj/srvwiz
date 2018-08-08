@@ -18,7 +18,6 @@
             },
             "webserviceName": "Webservice Name",
             "description": "Description",
-            "access": "Access",
             "datasource": "Datasource"
         }
     }

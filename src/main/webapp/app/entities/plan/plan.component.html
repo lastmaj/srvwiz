@@ -21,7 +21,6 @@
             <th><span jhiTranslate="srvwizApp.plan.wsLimit">Ws Limit</span></th>
             <th><span jhiTranslate="srvwizApp.plan.roleLimit">Role Limit</span></th>
             <th><span jhiTranslate="srvwizApp.plan.price">Price</span></th>
-            <th><span jhiTranslate="srvwizApp.plan.user">User</span></th>
             <th></th>
             </tr>
             </thead>
@@ -34,9 +33,6 @@
                 <td>{{plan.wsLimit}}</td>
                 <td>{{plan.roleLimit}}</td>
                 <td>{{plan.price}}</td>
-                <td>
-                    {{plan.user?.id}}
-                </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

@@ -17,7 +17,6 @@
             <th><span jhiTranslate="global.field.id">ID</span></th>
             <th><span jhiTranslate="srvwizApp.webservice.webserviceName">Webservice Name</span></th>
             <th><span jhiTranslate="srvwizApp.webservice.description">Description</span></th>
-            <th><span jhiTranslate="srvwizApp.webservice.access">Access</span></th>
             <th><span jhiTranslate="srvwizApp.webservice.datasource">Datasource</span></th>
             <th></th>
             </tr>
@@ -27,11 +26,6 @@
                 <td><a [routerLink]="['/webservice', webservice.id, 'view' ]">{{webservice.id}}</a></td>
                 <td>{{webservice.webserviceName}}</td>
                 <td>{{webservice.description}}</td>
-                <td>
-                    <div *ngIf="webservice.access">
-                        <a [routerLink]="['../access', webservice.access?.id, 'view' ]" >{{webservice.access?.id}}</a>
-                    </div>
-                </td>
                 <td>
                     <div *ngIf="webservice.datasource">
                         <a [routerLink]="['../data-source', webservice.datasource?.id, 'view' ]" >{{webservice.datasource?.id}}</a>

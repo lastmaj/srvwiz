@@ -42,7 +42,6 @@ describe('Plan e2e test', () => {
         expect(planUpdatePage.getRoleLimitInput()).toMatch('5');
         planUpdatePage.setPriceInput('5');
         expect(planUpdatePage.getPriceInput()).toMatch('5');
-        planUpdatePage.userSelectLastOption();
         planUpdatePage.save();
         expect(planUpdatePage.getSaveButton().isPresent()).toBeFalsy();
     });

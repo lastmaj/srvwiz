@@ -19,11 +19,10 @@
             "otherEntityField": "id"
         },
         {
-            "relationshipType": "one-to-one",
+            "relationshipType": "many-to-one",
             "relationshipName": "webservice",
             "otherEntityName": "webservice",
-            "ownerSide": false,
-            "otherEntityRelationshipName": "access"
+            "otherEntityField": "id"
         }
     ],
     "changelogDate": "20180808144625",

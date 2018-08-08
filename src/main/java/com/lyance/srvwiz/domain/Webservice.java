@@ -30,10 +30,6 @@ public class Webservice implements Serializable {
     @Column(name = "description")
     private String description;
 
-    @OneToOne
-    @JoinColumn(unique = true)
-    private Access access;
-
     @ManyToOne
     @JsonIgnoreProperties("")
     private DataSource datasource;
@@ -71,19 +67,6 @@ public class Webservice implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public Access getAccess() {
-        return access;
-    }
-
-    public Webservice access(Access access) {
-        this.access = access;
-        return this;
-    }
-
-    public void setAccess(Access access) {
-        this.access = access;
     }
 
     public DataSource getDatasource() {

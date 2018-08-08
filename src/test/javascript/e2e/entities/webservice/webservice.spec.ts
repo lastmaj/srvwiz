@@ -34,7 +34,6 @@ describe('Webservice e2e test', () => {
         expect(webserviceUpdatePage.getWebserviceNameInput()).toMatch('webserviceName');
         webserviceUpdatePage.setDescriptionInput('description');
         expect(webserviceUpdatePage.getDescriptionInput()).toMatch('description');
-        webserviceUpdatePage.accessSelectLastOption();
         webserviceUpdatePage.datasourceSelectLastOption();
         webserviceUpdatePage.save();
         expect(webserviceUpdatePage.getSaveButton().isPresent()).toBeFalsy();

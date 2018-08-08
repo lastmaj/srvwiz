@@ -1,5 +1,3 @@
-import { IUser } from 'app/core/user/user.model';
-
 export interface IPlan {
     id?: number;
     planName?: string;
@@ -8,7 +6,6 @@ export interface IPlan {
     wsLimit?: number;
     roleLimit?: number;
     price?: number;
-    user?: IUser;
 }
 
 export class Plan implements IPlan {
@@ -19,7 +16,6 @@ export class Plan implements IPlan {
         public datasourceLimit?: number,
         public wsLimit?: number,
         public roleLimit?: number,
-        public price?: number,
-        public user?: IUser
+        public price?: number
     ) {}
 }

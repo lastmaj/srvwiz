@@ -8,12 +8,6 @@
     -->
     <changeSet id="20180808144622-2" author="jhipster">
         
-        <addForeignKeyConstraint baseColumnNames="access_id"
-                                 baseTableName="webservice"
-                                 constraintName="fk_webservice_access_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="access"/>
-
         <addForeignKeyConstraint baseColumnNames="datasource_id"
                                  baseTableName="webservice"
                                  constraintName="fk_webservice_datasource_id"

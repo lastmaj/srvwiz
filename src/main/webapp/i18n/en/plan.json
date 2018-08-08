@@ -21,8 +21,7 @@
             "datasourceLimit": "Datasource Limit",
             "wsLimit": "Ws Limit",
             "roleLimit": "Role Limit",
-            "price": "Price",
-            "user": "User"
+            "price": "Price"
         }
     }
 }

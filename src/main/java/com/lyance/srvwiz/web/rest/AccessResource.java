@@ -16,8 +16,6 @@ import java.net.URISyntaxException;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 
 /**
  * REST controller for managing Access.
@@ -81,19 +79,11 @@ public class AccessResource {
     /**
      * GET  /accesses : get all the accesses.
      *
-     * @param filter the filter of the request
      * @return the ResponseEntity with status 200 (OK) and the list of accesses in body
      */
     @GetMapping("/accesses")
     @Timed
-    public List<Access> getAllAccesses(@RequestParam(required = false) String filter) {
-        if ("webservice-is-null".equals(filter)) {
-            log.debug("REST request to get all Accesss where webservice is null");
-            return StreamSupport
-                .stream(accessRepository.findAll().spliterator(), false)
-                .filter(access -> access.getWebservice() == null)
-                .collect(Collectors.toList());
-        }
+    public List<Access> getAllAccesses() {
         log.debug("REST request to get all Accesses");
         return accessRepository.findAll();
     }

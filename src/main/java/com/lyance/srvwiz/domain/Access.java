@@ -1,6 +1,5 @@
 package com.lyance.srvwiz.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -38,8 +37,8 @@ public class Access implements Serializable {
     @JsonIgnoreProperties("")
     private Role role;
 
-    @OneToOne(mappedBy = "access")
-    @JsonIgnore
+    @ManyToOne
+    @JsonIgnoreProperties("")
     private Webservice webservice;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove

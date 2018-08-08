@@ -23,7 +23,6 @@ export class PlanUpdatePage {
     wsLimitInput = element(by.id('field_wsLimit'));
     roleLimitInput = element(by.id('field_roleLimit'));
     priceInput = element(by.id('field_price'));
-    userSelect = element(by.id('field_user'));
 
     getPageTitle() {
         return this.pageTitle.getAttribute('jhiTranslate');
@@ -75,25 +74,6 @@ export class PlanUpdatePage {
 
     getPriceInput() {
         return this.priceInput.getAttribute('value');
-    }
-
-    userSelectLastOption(): promise.Promise<void> {
-        return this.userSelect
-            .all(by.tagName('option'))
-            .last()
-            .click();
-    }
-
-    userSelectOption(option): promise.Promise<void> {
-        return this.userSelect.sendKeys(option);
-    }
-
-    getUserSelect(): ElementFinder {
-        return this.userSelect;
-    }
-
-    getUserSelectedOption() {
-        return this.userSelect.element(by.css('option:checked')).getText();
     }
 
     save(): promise.Promise<void> {

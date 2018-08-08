@@ -13,12 +13,6 @@
                 <dd>
                     <span>{{webservice.description}}</span>
                 </dd>
-                <dt><span jhiTranslate="srvwizApp.webservice.access">Access</span></dt>
-                <dd>
-                    <div *ngIf="webservice.access">
-                        <a [routerLink]="['/access', webservice.access?.id, 'view']">{{webservice.access?.id}}</a>
-                    </div>
-                </dd>
                 <dt><span jhiTranslate="srvwizApp.webservice.datasource">Datasource</span></dt>
                 <dd>
                     <div *ngIf="webservice.datasource">

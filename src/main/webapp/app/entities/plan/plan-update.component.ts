@@ -2,11 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { JhiAlertService } from 'ng-jhipster';
 
 import { IPlan } from 'app/shared/model/plan.model';
 import { PlanService } from './plan.service';
-import { IUser, UserService } from 'app/core';
 
 @Component({
     selector: 'jhi-plan-update',
@@ -16,26 +14,13 @@ export class PlanUpdateComponent implements OnInit {
     private _plan: IPlan;
     isSaving: boolean;
 
-    users: IUser[];
-
-    constructor(
-        private jhiAlertService: JhiAlertService,
-        private planService: PlanService,
-        private userService: UserService,
-        private activatedRoute: ActivatedRoute
-    ) {}
+    constructor(private planService: PlanService, private activatedRoute: ActivatedRoute) {}
 
     ngOnInit() {
         this.isSaving = false;
         this.activatedRoute.data.subscribe(({ plan }) => {
             this.plan = plan;
         });
-        this.userService.query().subscribe(
-            (res: HttpResponse<IUser[]>) => {
-                this.users = res.body;
-            },
-            (res: HttpErrorResponse) => this.onError(res.message)
-        );
     }
 
     previousState() {
@@ -62,14 +47,6 @@ export class PlanUpdateComponent implements OnInit {
 
     private onSaveError() {
         this.isSaving = false;
-    }
-
-    private onError(errorMessage: string) {
-        this.jhiAlertService.error(errorMessage, null, null);
-    }
-
-    trackUserById(index: number, item: IUser) {
-        return item.id;
     }
     get plan() {
         return this._plan;

@@ -26,16 +26,7 @@
             "fieldType": "Long"
         }
     ],
-    "relationships": [
-        {
-            "relationshipType": "one-to-one",
-            "relationshipName": "user",
-            "otherEntityName": "user",
-            "otherEntityField": "id",
-            "ownerSide": true,
-            "otherEntityRelationshipName": "plan"
-        }
-    ],
+    "relationships": [],
     "changelogDate": "20180808144623",
     "entityTableName": "plan",
     "dto": "no",

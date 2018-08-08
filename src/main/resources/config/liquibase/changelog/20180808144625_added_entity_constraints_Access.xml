@@ -14,5 +14,11 @@
                                  referencedColumnNames="id"
                                  referencedTableName="role"/>
 
+        <addForeignKeyConstraint baseColumnNames="webservice_id"
+                                 baseTableName="access"
+                                 constraintName="fk_access_webservice_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="webservice"/>
+
     </changeSet>
 </databaseChangeLog>

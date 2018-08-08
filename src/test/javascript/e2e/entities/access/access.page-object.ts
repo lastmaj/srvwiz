@@ -20,6 +20,7 @@ export class AccessUpdatePage {
     tableNameInput = element(by.id('field_tableName'));
     accessTypeSelect = element(by.id('field_accessType'));
     roleSelect = element(by.id('field_role'));
+    webserviceSelect = element(by.id('field_webservice'));
 
     getPageTitle() {
         return this.pageTitle.getAttribute('jhiTranslate');
@@ -64,6 +65,25 @@ export class AccessUpdatePage {
 
     getRoleSelectedOption() {
         return this.roleSelect.element(by.css('option:checked')).getText();
+    }
+
+    webserviceSelectLastOption(): promise.Promise<void> {
+        return this.webserviceSelect
+            .all(by.tagName('option'))
+            .last()
+            .click();
+    }
+
+    webserviceSelectOption(option): promise.Promise<void> {
+        return this.webserviceSelect.sendKeys(option);
+    }
+
+    getWebserviceSelect(): ElementFinder {
+        return this.webserviceSelect;
+    }
+
+    getWebserviceSelectedOption() {
+        return this.webserviceSelect.element(by.css('option:checked')).getText();
     }
 
     save(): promise.Promise<void> {
