@@ -1,0 +1,25 @@
+
+{
+    "srvwizApp": {
+        "access" : {
+            "home": {
+                "title": "Accesses",
+                "createLabel": "Créer un nouveau Access",
+                "createOrEditLabel": "Créer ou éditer un Access"
+            },
+            "created": "Un nouveau Access a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Access avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Access avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Access {{ id }} ?"
+            },
+            "detail": {
+                "title": "Access"
+            },
+            "tableName": "Table Name",
+            "accessType": "Access Type",
+            "role": "Role",
+            "webservice": "Webservice"
+        }
+    }
+}

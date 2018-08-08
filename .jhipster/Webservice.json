@@ -1,0 +1,38 @@
+{
+    "name": "Webservice",
+    "fields": [
+        {
+            "fieldName": "webserviceName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "access",
+            "otherEntityName": "access",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "webservice"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "datasource",
+            "otherEntityName": "dataSource",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20180808144622",
+    "entityTableName": "webservice",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,10 @@
+{
+    "srvwizApp": {
+        "DatabaseType" : {
+            "null": "",
+            "SQL": "SQL",
+            "MONGODB": "MONGODB",
+            "CASSANDRA": "CASSANDRA"
+        }
+    }
+}

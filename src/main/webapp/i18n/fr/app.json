@@ -1,0 +1,27 @@
+
+{
+    "srvwizApp": {
+        "app" : {
+            "home": {
+                "title": "Apps",
+                "createLabel": "Créer un nouveau App",
+                "createOrEditLabel": "Créer ou éditer un App"
+            },
+            "created": "Un nouveau App a été créé avec l'identifiant {{ param }}",
+            "updated": "Le App avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le App avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le App {{ id }} ?"
+            },
+            "detail": {
+                "title": "App"
+            },
+            "appName": "App Name",
+            "description": "Description",
+            "apiKey": "Api Key",
+            "active": "Active",
+            "user": "User",
+            "role": "Role"
+        }
+    }
+}

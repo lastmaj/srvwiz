@@ -50,6 +50,7 @@ spring:
             hibernate.cache.hazelcast.use_lite_member: true
     liquibase:
         contexts: dev
+        drop-first: true
     mail:
         host: localhost
         port: 25

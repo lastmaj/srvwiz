@@ -1,0 +1,9 @@
+{
+    "srvwizApp": {
+        "FileType" : {
+            "null": "",
+            "CSV": "CSV",
+            "EXCEL": "EXCEL"
+        }
+    }
+}
