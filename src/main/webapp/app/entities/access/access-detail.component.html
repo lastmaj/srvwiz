@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="access">
+            <h2><span jhiTranslate="srvwizApp.access.detail.title">Access</span> {{access.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="srvwizApp.access.tableName">Table Name</span></dt>
+                <dd>
+                    <span>{{access.tableName}}</span>
+                </dd>
+                <dt><span jhiTranslate="srvwizApp.access.accessType">Access Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'srvwizApp.AccessType.' + access.accessType}}">{{access.accessType}}</span>
+                </dd>
+                <dt><span jhiTranslate="srvwizApp.access.role">Role</span></dt>
+                <dd>
+                    <div *ngIf="access.role">
+                        <a [routerLink]="['/role', access.role?.id, 'view']">{{access.role?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="srvwizApp.access.webservice">Webservice</span></dt>
+                <dd>
+                    <div *ngIf="access.webservice">
+                        <a [routerLink]="['/webservice', access.webservice?.id, 'view']">{{access.webservice?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/access', access.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="role">
+            <h2><span jhiTranslate="srvwizApp.role.detail.title">Role</span> {{role.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="srvwizApp.role.roleName">Role Name</span></dt>
+                <dd>
+                    <span>{{role.roleName}}</span>
+                </dd>
+                <dt><span jhiTranslate="srvwizApp.role.description">Description</span></dt>
+                <dd>
+                    <span>{{role.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="srvwizApp.role.active">Active</span></dt>
+                <dd>
+                    <span>{{role.active}}</span>
+                </dd>
+                <dt><span jhiTranslate="srvwizApp.role.user">User</span></dt>
+                <dd>
+                    {{role.user?.id}}
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/role', role.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

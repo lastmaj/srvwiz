@@ -1,0 +1,32 @@
+
+{
+    "srvwizApp": {
+        "dataSource" : {
+            "home": {
+                "title": "DataSources",
+                "createLabel": "Créer un nouveau Data Source",
+                "createOrEditLabel": "Créer ou éditer un Data Source"
+            },
+            "created": "Un nouveau Data Source a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Data Source avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Data Source avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Data Source {{ id }} ?"
+            },
+            "detail": {
+                "title": "Data Source"
+            },
+            "dataSourceName": "Data Source Name",
+            "description": "Description",
+            "datatype": "Datatype",
+            "fileType": "File Type",
+            "databaseType": "Database Type",
+            "databaseProduct": "Database Product",
+            "databasePath": "Database Path",
+            "dbUsername": "Db Username",
+            "dbPass": "Db Pass",
+            "filePath": "File Path",
+            "user": "User"
+        }
+    }
+}

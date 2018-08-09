@@ -1,0 +1,27 @@
+
+{
+    "srvwizApp": {
+        "plan" : {
+            "home": {
+                "title": "Plans",
+                "createLabel": "Créer un nouveau Plan",
+                "createOrEditLabel": "Créer ou éditer un Plan"
+            },
+            "created": "Un nouveau Plan a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Plan avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Plan avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Plan {{ id }} ?"
+            },
+            "detail": {
+                "title": "Plan"
+            },
+            "planName": "Plan Name",
+            "reqestLimit": "Reqest Limit",
+            "datasourceLimit": "Datasource Limit",
+            "wsLimit": "Ws Limit",
+            "roleLimit": "Role Limit",
+            "price": "Price"
+        }
+    }
+}

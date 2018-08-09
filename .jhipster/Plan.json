@@ -1,0 +1,39 @@
+{
+    "name": "Plan",
+    "fields": [
+        {
+            "fieldName": "planName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "reqestLimit",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "datasourceLimit",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "wsLimit",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "roleLimit",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "price",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20180809135157",
+    "entityTableName": "plan",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

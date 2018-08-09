@@ -1,0 +1,37 @@
+{
+    "name": "Access",
+    "fields": [
+        {
+            "fieldName": "tableName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "accessType",
+            "fieldType": "AccessType",
+            "fieldValues": "GET,POST,PUT,DELETE"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "role",
+            "otherEntityName": "role",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "webservice",
+            "otherEntityName": "webservice",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20180809135159",
+    "entityTableName": "access",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

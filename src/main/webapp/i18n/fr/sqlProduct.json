@@ -1,0 +1,11 @@
+{
+    "srvwizApp": {
+        "SqlProduct" : {
+            "null": "",
+            "MYSQL": "MYSQL",
+            "POSTGRESQL": "POSTGRESQL",
+            "ORACLE": "ORACLE",
+            "MSSQL": "MSSQL"
+        }
+    }
+}

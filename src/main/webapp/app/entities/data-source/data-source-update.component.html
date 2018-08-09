@@ -1,0 +1,87 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-data-source-heading" jhiTranslate="srvwizApp.dataSource.home.createOrEditLabel">Create or edit a Data Source</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!dataSource.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                           [(ngModel)]="dataSource.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="srvwizApp.dataSource.dataSourceName" for="field_dataSourceName">Data Source Name</label>
+                    <input type="text" class="form-control" name="dataSourceName" id="field_dataSourceName"
+                           [(ngModel)]="dataSource.dataSourceName" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="srvwizApp.dataSource.description" for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                           [(ngModel)]="dataSource.description" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="srvwizApp.dataSource.datatype" for="field_datatype">Datatype</label>
+                    <select class="form-control" name="datatype" [(ngModel)]="dataSource.datatype" id="field_datatype" >
+                        <option value="FILE">{{'srvwizApp.DataType.FILE' | translate}}</option>
+                        <option value="DATABASE">{{'srvwizApp.DataType.DATABASE' | translate}}</option>
+                        <option value="CREATE">{{'srvwizApp.DataType.CREATE' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group" *ngIf="dataSource.datatype==='FILE'">
+                    <label class="form-control-label" jhiTranslate="srvwizApp.dataSource.fileType" for="field_fileType">File Type</label>
+                    <select class="form-control" name="fileType" [(ngModel)]="dataSource.fileType" id="field_fileType" >
+                        <option value="CSV">{{'srvwizApp.FileType.CSV' | translate}}</option>
+                        <option value="EXCEL">{{'srvwizApp.FileType.EXCEL' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group" *ngIf="dataSource.datatype==='DATABASE'">
+                    <label class="form-control-label" jhiTranslate="srvwizApp.dataSource.databaseType" for="field_databaseType">Database Type</label>
+                    <select class="form-control" name="databaseType" [(ngModel)]="dataSource.databaseType" id="field_databaseType" >
+                        <option value="SQL">{{'srvwizApp.DatabaseType.SQL' | translate}}</option>
+                        <option value="MONGODB">{{'srvwizApp.DatabaseType.MONGODB' | translate}}</option>
+                        <option value="CASSANDRA">{{'srvwizApp.DatabaseType.CASSANDRA' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group" *ngIf="dataSource.databaseType==='SQL' && dataSource.datatype==='DATABASE'">
+                    <label class="form-control-label" jhiTranslate="srvwizApp.dataSource.databaseProduct" for="field_databaseProduct">Database Product</label>
+                    <select class="form-control" name="databaseProduct" [(ngModel)]="dataSource.databaseProduct" id="field_databaseProduct" >
+                        <option value="MYSQL">{{'srvwizApp.SqlProduct.MYSQL' | translate}}</option>
+                        <option value="POSTGRESQL">{{'srvwizApp.SqlProduct.POSTGRESQL' | translate}}</option>
+                        <option value="ORACLE">{{'srvwizApp.SqlProduct.ORACLE' | translate}}</option>
+                        <option value="MSSQL">{{'srvwizApp.SqlProduct.MSSQL' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group" *ngIf="dataSource.datatype==='DATABASE'">
+                    <label class="form-control-label" jhiTranslate="srvwizApp.dataSource.databasePath" for="field_databasePath">Database Path</label>
+                    <input type="text" class="form-control" name="databasePath" id="field_databasePath"
+                           [(ngModel)]="dataSource.databasePath" />
+                </div>
+                <div class="form-group" *ngIf="dataSource.datatype==='DATABASE'">
+                    <label class="form-control-label" jhiTranslate="srvwizApp.dataSource.dbUsername" for="field_dbUsername">Db Username</label>
+                    <input type="text" class="form-control" name="dbUsername" id="field_dbUsername"
+                           [(ngModel)]="dataSource.dbUsername" />
+                </div>
+                <div class="form-group" *ngIf="dataSource.datatype==='DATABASE'">
+                    <label class="form-control-label" jhiTranslate="srvwizApp.dataSource.dbPass" for="field_dbPass">Db Pass</label>
+                    <input type="text" class="form-control" name="dbPass" id="field_dbPass"
+                           [(ngModel)]="dataSource.dbPass" />
+                </div>
+                <div class="form-group" *ngIf="dataSource.datatype==='FILE'">
+                    <label class="form-control-label" jhiTranslate="srvwizApp.dataSource.filePath" for="field_filePath">File Path</label>
+                    <input type="text" class="form-control" name="filePath" id="field_filePath"
+                           [(ngModel)]="dataSource.filePath" />
+                </div>
+
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+
+{
+    "srvwizApp": {
+        "webservice" : {
+            "home": {
+                "title": "Webservices",
+                "createLabel": "Créer un nouveau Webservice",
+                "createOrEditLabel": "Créer ou éditer un Webservice"
+            },
+            "created": "Un nouveau Webservice a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Webservice avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Webservice avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Webservice {{ id }} ?"
+            },
+            "detail": {
+                "title": "Webservice"
+            },
+            "webserviceName": "Webservice Name",
+            "description": "Description",
+            "datasource": "Datasource"
+        }
+    }
+}
