@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -109,6 +110,9 @@ public class RoleResource {
     public ResponseEntity<Role> getRole(@PathVariable Long id) {
         log.debug("REST request to get Role : {}", id);
         Optional<Role> role = roleRepository.findById(id);
+        List<Access> list=accessRepository.findByRole(role.get());
+        role.get().setAccessLists(list);
+        System.out.println(list);
         return ResponseUtil.wrapOrNotFound(role);
     }
 

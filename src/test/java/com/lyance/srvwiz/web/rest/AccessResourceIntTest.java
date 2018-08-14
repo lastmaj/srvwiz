@@ -4,6 +4,7 @@ import com.lyance.srvwiz.SrvwizApp;
 
 import com.lyance.srvwiz.domain.Access;
 import com.lyance.srvwiz.repository.AccessRepository;
+import com.lyance.srvwiz.repository.RoleRepository;
 import com.lyance.srvwiz.web.rest.errors.ExceptionTranslator;
 
 import org.junit.Before;
@@ -49,6 +50,8 @@ public class AccessResourceIntTest {
     @Autowired
     private AccessRepository accessRepository;
 
+    @Autowired
+    private RoleRepository roleRepository;
 
     @Autowired
     private MappingJackson2HttpMessageConverter jacksonMessageConverter;
@@ -69,7 +72,7 @@ public class AccessResourceIntTest {
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        final AccessResource accessResource = new AccessResource(accessRepository);
+        final AccessResource accessResource = new AccessResource(accessRepository, roleRepository);
         this.restAccessMockMvc = MockMvcBuilders.standaloneSetup(accessResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setControllerAdvice(exceptionTranslator)

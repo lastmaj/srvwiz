@@ -2,7 +2,9 @@ package com.lyance.srvwiz.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import com.lyance.srvwiz.domain.Access;
+import com.lyance.srvwiz.domain.Role;
 import com.lyance.srvwiz.repository.AccessRepository;
+import com.lyance.srvwiz.repository.RoleRepository;
 import com.lyance.srvwiz.web.rest.errors.BadRequestAlertException;
 import com.lyance.srvwiz.web.rest.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
@@ -30,8 +32,11 @@ public class AccessResource {
 
     private final AccessRepository accessRepository;
 
-    public AccessResource(AccessRepository accessRepository) {
+    private final RoleRepository roleRepository;
+
+    public AccessResource(AccessRepository accessRepository, RoleRepository roleRepository) {
         this.accessRepository = accessRepository;
+        this.roleRepository = roleRepository;
     }
 
     /**
@@ -48,7 +53,13 @@ public class AccessResource {
         if (access.getId() != null) {
             throw new BadRequestAlertException("A new access cannot already have an ID", ENTITY_NAME, "idexists");
         }
+        System.out.println(access.getRole()+" HEEEEEEEEEEERE");
         Access result = accessRepository.save(access);
+
+        Role role = roleRepository.findById(access.getRole().getId()).get();
+        role.addAccessList(access);
+
+        System.out.println(role.getAccessLists()+" aaa");
         return ResponseEntity.created(new URI("/api/accesses/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId().toString()))
             .body(result);
