@@ -8,9 +8,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 import javax.persistence.*;
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.Objects;
+import java.util.*;
 
 /**
  * A Role.
@@ -40,9 +38,9 @@ public class Role implements Serializable {
     @JsonIgnoreProperties("")
     private User user;
 
-    @OneToMany(mappedBy = "role")
+    @OneToMany(mappedBy = "role",fetch=FetchType.EAGER)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<Access> accessLists = new HashSet<>();
+    private List<Access> accessLists = new ArrayList<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -105,11 +103,11 @@ public class Role implements Serializable {
         this.user = user;
     }
 
-    public Set<Access> getAccessLists() {
+    public List<Access> getAccessLists() {
         return accessLists;
     }
 
-    public Role accessLists(Set<Access> accesses) {
+    public Role accessLists(List<Access> accesses) {
         this.accessLists = accesses;
         return this;
     }
@@ -126,7 +124,7 @@ public class Role implements Serializable {
         return this;
     }
 
-    public void setAccessLists(Set<Access> accesses) {
+    public void setAccessLists(List<Access> accesses) {
         this.accessLists = accesses;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove

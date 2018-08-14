@@ -3,6 +3,7 @@ package com.lyance.srvwiz.web.rest;
 import com.lyance.srvwiz.SrvwizApp;
 
 import com.lyance.srvwiz.domain.Role;
+import com.lyance.srvwiz.repository.AccessRepository;
 import com.lyance.srvwiz.repository.RoleRepository;
 import com.lyance.srvwiz.service.UserService;
 import com.lyance.srvwiz.web.rest.errors.ExceptionTranslator;
@@ -53,6 +54,9 @@ public class RoleResourceIntTest {
     private RoleRepository roleRepository;
 
     @Autowired
+    private AccessRepository accessRepository;
+
+    @Autowired
     private UserService userService;
 
     @Autowired
@@ -74,7 +78,7 @@ public class RoleResourceIntTest {
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        final RoleResource roleResource = new RoleResource(userService, roleRepository);
+        final RoleResource roleResource = new RoleResource(accessRepository, userService, roleRepository);
         this.restRoleMockMvc = MockMvcBuilders.standaloneSetup(roleResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setControllerAdvice(exceptionTranslator)

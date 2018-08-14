@@ -12,15 +12,6 @@ import {
     roleRoute,
     rolePopupRoute
 } from './';
-import {
-    AccessComponent,
-    AccessDetailComponent,
-    AccessUpdateComponent,
-    AccessDeletePopupComponent,
-    AccessDeleteDialogComponent,
-    accessRoute,
-    accessPopupRoute
-} from 'app/entities/access';
 
 const ENTITY_STATES = [...roleRoute, ...rolePopupRoute];
 

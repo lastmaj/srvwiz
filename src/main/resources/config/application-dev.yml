@@ -31,10 +31,11 @@ spring:
     jackson:
         serialization.indent_output: true
     datasource:
+        driver-class-name: org.postgresql.ds.PGSimpleDataSource
         type: com.zaxxer.hikari.HikariDataSource
-        url: jdbc:postgresql://localhost:5433/srvwiz
+        url: jdbc:postgresql://localhost:5432/srvwiz
         username: postgres
-        password: '0000'
+        password: 'pass'
     jpa:
         database-platform: io.github.jhipster.domain.util.FixedPostgreSQL82Dialect
         database: POSTGRESQL
@@ -50,8 +51,6 @@ spring:
             hibernate.cache.hazelcast.use_lite_member: true
     liquibase:
         contexts: dev
-
-
     mail:
         host: localhost
         port: 25

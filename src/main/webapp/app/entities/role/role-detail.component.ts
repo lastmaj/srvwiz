@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { IRole } from 'app/shared/model/role.model';
+import { IAccess } from 'app/shared/model/access.model';
 
 @Component({
     selector: 'jhi-role-detail',
@@ -9,6 +10,7 @@ import { IRole } from 'app/shared/model/role.model';
 })
 export class RoleDetailComponent implements OnInit {
     role: IRole;
+    accessLists: IAccess[];
 
     constructor(private activatedRoute: ActivatedRoute) {}
 

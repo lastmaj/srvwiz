@@ -1,7 +1,9 @@
 package com.lyance.srvwiz.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
+import com.lyance.srvwiz.domain.Access;
 import com.lyance.srvwiz.domain.Role;
+import com.lyance.srvwiz.repository.AccessRepository;
 import com.lyance.srvwiz.repository.RoleRepository;
 import com.lyance.srvwiz.service.UserService;
 import com.lyance.srvwiz.web.rest.errors.BadRequestAlertException;
@@ -17,6 +19,7 @@ import java.net.URISyntaxException;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 /**
  * REST controller for managing Role.
@@ -24,6 +27,8 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api")
 public class RoleResource {
+
+    private final AccessRepository accessRepository;
 
     private final UserService userService;
 
@@ -33,7 +38,8 @@ public class RoleResource {
 
     private final RoleRepository roleRepository;
 
-    public RoleResource(UserService userService, RoleRepository roleRepository) {
+    public RoleResource(AccessRepository accessRepository, UserService userService, RoleRepository roleRepository) {
+        this.accessRepository = accessRepository;
         this.userService = userService;
         this.roleRepository = roleRepository;
     }
