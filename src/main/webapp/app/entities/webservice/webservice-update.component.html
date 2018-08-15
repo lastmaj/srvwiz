@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-webservice-heading" jhiTranslate="srvwizApp.webservice.home.createOrEditLabel">Create or edit a Webservice</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!webservice.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="webservice.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="srvwizApp.webservice.webserviceName" for="field_webserviceName">Webservice Name</label>
+                    <input type="text" class="form-control" name="webserviceName" id="field_webserviceName"
+                        [(ngModel)]="webservice.webserviceName" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="srvwizApp.webservice.description" for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                        [(ngModel)]="webservice.description" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="srvwizApp.webservice.datasource" for="field_datasource">Datasource</label>
+                    <select class="form-control" id="field_datasource" name="datasource" [(ngModel)]="webservice.datasource" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="dataSourceOption.id === webservice.datasource?.id ? webservice.datasource : dataSourceOption" *ngFor="let dataSourceOption of datasources; trackBy: trackDataSourceById">{{dataSourceOption.dataSourceName}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

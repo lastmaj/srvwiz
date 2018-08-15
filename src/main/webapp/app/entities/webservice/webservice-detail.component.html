@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="webservice">
+            <h2><span jhiTranslate="srvwizApp.webservice.detail.title">Webservice</span> {{webservice.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="srvwizApp.webservice.webserviceName">Webservice Name</span></dt>
+                <dd>
+                    <span>{{webservice.webserviceName}}</span>
+                </dd>
+                <dt><span jhiTranslate="srvwizApp.webservice.description">Description</span></dt>
+                <dd>
+                    <span>{{webservice.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="srvwizApp.webservice.datasource">Datasource</span></dt>
+                <dd>
+                    <div *ngIf="webservice.datasource">
+                        <a [routerLink]="['/data-source', webservice.datasource?.id, 'view']">{{webservice.datasource?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/webservice', webservice.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+{
+    "srvwizApp": {
+        "DataType" : {
+            "null": "",
+            "FILE": "FILE",
+            "DATABASE": "DATABASE",
+            "CREATE": "CREATE"
+        }
+    }
+}

@@ -1,0 +1,129 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="role">
+            <h2><span jhiTranslate="srvwizApp.role.detail.title">Role</span> {{role.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+
+            <h2 *ngIf="role.accessList">Hello</h2>
+            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="pills-details-tab" data-toggle="pill" href="#pills-details" role="tab" aria-controls="pills-home" aria-selected="true">Details</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="pills-access-tab" data-toggle="pill" href="#pills-access" role="tab" aria-controls="pills-profile" aria-selected="false">Access List</a>
+                </li>
+            </ul>
+
+
+            <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="pills-details" role="tabpanel" aria-labelledby="pills-details-tab">
+                    <dl class="row-md jh-entity-details">
+                        <dt><span jhiTranslate="srvwizApp.role.roleName">Role Name</span></dt>
+                        <dd>
+                            <span>{{role.roleName}}</span>
+                        </dd>
+                        <dt><span jhiTranslate="srvwizApp.role.description">Description</span></dt>
+                        <dd>
+                            <span>{{role.description}}</span>
+                        </dd>
+                        <dt><span jhiTranslate="srvwizApp.role.active">Active</span></dt>
+                        <dd>
+                            <span>{{role.active}}</span>
+                        </dd>
+                        <dt><span jhiTranslate="srvwizApp.role.user">User</span></dt>
+                        <dd>
+                            {{role.user?.id}}
+                        </dd>
+                    </dl>
+                </div>
+                <div class="tab-pane fade" id="pills-access" role="tabpanel" aria-labelledby="pills-access-tab">
+                    <div class="tab-content" id="myTabContent">
+                        <button class="btn btn-success" style="float: right; margin-bottom: 20px;" data-toggle="modal" data-target="#exampleModal">
+                            Add a new access
+                        </button>
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Id</th>
+                                        <th scope="col">Table Name</th>
+                                        <th scope="col">Access Type</th>
+                                        <th scope="col">Webservice</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let access of role.accessLists ;trackBy: trackId">
+                                        <td>{{access.id}}</td>
+                                        <td>{{access.tableName}}</td>
+                                        <td>{{access.accessType}}</td>
+                                        <td>{{access.webservice.webserviceName}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+            <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+        </button>
+
+        <button type="button"
+        [routerLink]="['/role', role.id, 'edit']"
+        class="btn btn-primary">
+        <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Create a new access</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label class="form-control-label" for="field_tableName">Table Name</label>
+                            <input type="text" class="form-control" name="tableName" id="field_tableName"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-control-label" for="field_accessType">Access Type</label>
+                            <select class="form-control" name="accessType"  id="field_accessType" >
+                                <option value="GET">{{'srvwizApp.AccessType.GET' | translate}}</option>
+                                <option value="POST">{{'srvwizApp.AccessType.POST' | translate}}</option>
+                                <option value="PUT">{{'srvwizApp.AccessType.PUT' | translate}}</option>
+                                <option value="DELETE">{{'srvwizApp.AccessType.DELETE' | translate}}</option>
+                            </select>
+                        </div>
+                        <div class="form-group" required="">
+                            <label class="form-control-label" for="field_webservice">Webservice</label>
+                            <select class="form-control" id="field_webservice" name="webservice">
+                                <option [ngValue]="null"></option>
+                                <option [ngValue]="webserviceOption" *ngFor="let webserviceOption of webservices; trackBy: trackWebserviceById">{{webserviceOption.webserviceName}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+</div>
+
+
+

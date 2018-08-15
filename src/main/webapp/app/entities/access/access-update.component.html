@@ -1,0 +1,52 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-access-heading" jhiTranslate="srvwizApp.access.home.createOrEditLabel">Create or edit a Access</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!access.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="access.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="srvwizApp.access.tableName" for="field_tableName">Table Name</label>
+                    <input type="text" class="form-control" name="tableName" id="field_tableName"
+                        [(ngModel)]="access.tableName" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="srvwizApp.access.accessType" for="field_accessType">Access Type</label>
+                    <select class="form-control" name="accessType" [(ngModel)]="access.accessType" id="field_accessType" >
+                        <option value="GET">{{'srvwizApp.AccessType.GET' | translate}}</option>
+                        <option value="POST">{{'srvwizApp.AccessType.POST' | translate}}</option>
+                        <option value="PUT">{{'srvwizApp.AccessType.PUT' | translate}}</option>
+                        <option value="DELETE">{{'srvwizApp.AccessType.DELETE' | translate}}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="srvwizApp.access.role" for="field_role">Role</label>
+                    <select class="form-control" id="field_role" name="role" [(ngModel)]="access.role" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="roleOption.id === access.role?.id ? access.role : roleOption" *ngFor="let roleOption of roles; trackBy: trackRoleById">{{roleOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group" required="">
+                    <label class="form-control-label" jhiTranslate="srvwizApp.access.webservice" for="field_webservice">Webservice</label>
+                    <select class="form-control" id="field_webservice" name="webservice" [(ngModel)]="access.webservice" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="webserviceOption.id === access.webservice?.id ? access.webservice : webserviceOption" *ngFor="let webserviceOption of webservices; trackBy: trackWebserviceById">{{webserviceOption.webserviceName}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

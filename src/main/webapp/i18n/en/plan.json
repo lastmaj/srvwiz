@@ -1,0 +1,27 @@
+
+{
+    "srvwizApp": {
+        "plan" : {
+            "home": {
+                "title": "Plans",
+                "createLabel": "Create a new Plan",
+                "createOrEditLabel": "Create or edit a Plan"
+            },
+            "created": "A new Plan is created with identifier {{ param }}",
+            "updated": "A Plan is updated with identifier {{ param }}",
+            "deleted": "A Plan is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Plan {{ id }}?"
+            },
+            "detail": {
+                "title": "Plan"
+            },
+            "planName": "Plan Name",
+            "reqestLimit": "Reqest Limit",
+            "datasourceLimit": "Datasource Limit",
+            "wsLimit": "Ws Limit",
+            "roleLimit": "Role Limit",
+            "price": "Price"
+        }
+    }
+}

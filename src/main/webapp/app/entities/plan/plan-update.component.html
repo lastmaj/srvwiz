@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-plan-heading" jhiTranslate="srvwizApp.plan.home.createOrEditLabel">Create or edit a Plan</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!plan.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="plan.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="srvwizApp.plan.planName" for="field_planName">Plan Name</label>
+                    <input type="text" class="form-control" name="planName" id="field_planName"
+                        [(ngModel)]="plan.planName" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="srvwizApp.plan.reqestLimit" for="field_reqestLimit">Reqest Limit</label>
+                    <input type="number" class="form-control" name="reqestLimit" id="field_reqestLimit"
+                        [(ngModel)]="plan.reqestLimit" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="srvwizApp.plan.datasourceLimit" for="field_datasourceLimit">Datasource Limit</label>
+                    <input type="number" class="form-control" name="datasourceLimit" id="field_datasourceLimit"
+                        [(ngModel)]="plan.datasourceLimit" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="srvwizApp.plan.wsLimit" for="field_wsLimit">Ws Limit</label>
+                    <input type="number" class="form-control" name="wsLimit" id="field_wsLimit"
+                        [(ngModel)]="plan.wsLimit" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="srvwizApp.plan.roleLimit" for="field_roleLimit">Role Limit</label>
+                    <input type="number" class="form-control" name="roleLimit" id="field_roleLimit"
+                        [(ngModel)]="plan.roleLimit" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="srvwizApp.plan.price" for="field_price">Price</label>
+                    <input type="number" class="form-control" name="price" id="field_price"
+                        [(ngModel)]="plan.price" />
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

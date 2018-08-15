@@ -1,0 +1,67 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="dataSource">
+            <h2><span jhiTranslate="srvwizApp.dataSource.detail.title">Data Source</span> {{dataSource.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="srvwizApp.dataSource.dataSourceName">Data Source Name</span></dt>
+                <dd>
+                    <span>{{dataSource.dataSourceName}}</span>
+                </dd>
+                <dt><span jhiTranslate="srvwizApp.dataSource.description">Description</span></dt>
+                <dd>
+                    <span>{{dataSource.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="srvwizApp.dataSource.datatype">Datatype</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'srvwizApp.DataType.' + dataSource.datatype}}">{{dataSource.datatype}}</span>
+                </dd>
+                <dt><span jhiTranslate="srvwizApp.dataSource.fileType">File Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'srvwizApp.FileType.' + dataSource.fileType}}">{{dataSource.fileType}}</span>
+                </dd>
+                <dt><span jhiTranslate="srvwizApp.dataSource.databaseType">Database Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'srvwizApp.DatabaseType.' + dataSource.databaseType}}">{{dataSource.databaseType}}</span>
+                </dd>
+                <dt><span jhiTranslate="srvwizApp.dataSource.databaseProduct">Database Product</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'srvwizApp.SqlProduct.' + dataSource.databaseProduct}}">{{dataSource.databaseProduct}}</span>
+                </dd>
+                <dt><span jhiTranslate="srvwizApp.dataSource.databasePath">Database Path</span></dt>
+                <dd>
+                    <span>{{dataSource.databasePath}}</span>
+                </dd>
+                <dt><span jhiTranslate="srvwizApp.dataSource.dbUsername">Db Username</span></dt>
+                <dd>
+                    <span>{{dataSource.dbUsername}}</span>
+                </dd>
+                <dt><span jhiTranslate="srvwizApp.dataSource.dbPass">Db Pass</span></dt>
+                <dd>
+                    <span>{{dataSource.dbPass}}</span>
+                </dd>
+                <dt><span jhiTranslate="srvwizApp.dataSource.filePath">File Path</span></dt>
+                <dd>
+                    <span>{{dataSource.filePath}}</span>
+                </dd>
+                <dt><span jhiTranslate="srvwizApp.dataSource.user">User</span></dt>
+                <dd>
+                    {{dataSource.user?.id}}
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/data-source', dataSource.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
