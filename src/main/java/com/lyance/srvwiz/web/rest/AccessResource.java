@@ -129,8 +129,6 @@ public class AccessResource {
 
         role = role.removeAccessList(access);
 
-        roleRepository.save(role);
-
         accessRepository.deleteById(id);
 
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();

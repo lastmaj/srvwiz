@@ -8,6 +8,7 @@ import com.lyance.srvwiz.repository.RoleRepository;
 import com.lyance.srvwiz.service.UserService;
 import com.lyance.srvwiz.web.rest.errors.BadRequestAlertException;
 import com.lyance.srvwiz.web.rest.util.HeaderUtil;
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -126,7 +127,15 @@ public class RoleResource {
     @Timed
     public ResponseEntity<Void> deleteRole(@PathVariable Long id) {
         log.debug("REST request to delete Role : {}", id);
+        Role role = roleRepository.findById(id).get();
+        List<Access> list=accessRepository.findByRole(role);
 
+        if (list != null){
+            for (Access access: list){
+                role = role.removeAccessList(access);
+                accessRepository.delete(access);
+            }
+        }
         roleRepository.deleteById(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
     }
